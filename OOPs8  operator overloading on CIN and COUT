@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+class complex{
+    public:
+    int real,imag;
+    friend ostream& operator<<(ostream &o,complex &c1);  // here operator overoading is applied on << operator and since it includes the operations on outputstream(ostream) and complex c1 thus inside the operator overloading two arguments are passed.
+};                                                       // now the operator overoading is applied the next step is t display them and which also requires ostream operator so it is used before the opertor overloading for denoting that the following program must be outputed. 
+ostream& operator<<(ostream &o,complex &c1){             // since here oeprstor overloading includes two argyments as well as two operators to work on at same time so it must be included in friend list for the elaboration of it outta class.
+    o<<c1.real<<"+i"<<c1.imag;                           // cout is also referred by just O so in the friend func elaboratio we have used o just for the output of following result we want in operator overloading.
+    return o;
+}
+
+int main()
+{
+    complex c1;
+    c1.real=5, c1.imag=8;
+    cout<<c1;
+
+    return 0;
+}
