@@ -1,0 +1,75 @@
+#include <iostream>
+
+using namespace std;
+
+class rectangle{
+    private:
+    int l,b;
+    public:
+    
+    /*rectangle(){
+        l=1;
+        b=1;
+    }*/  // default constructor can be neglected if we assign their values in the parameterised const. as shown below...if we remove values assigned to the arguments then we might need this default constructor.
+    
+    rectangle(int l=1, int b=1){
+        setlength(l);
+        setbreadth(b);
+    }
+
+    rectangle(rectangle &r){  // here we can write a r1 but since a rectangle isbeng pased so it doesn't matters if it has any name or not. just the function matters and format only that rectangle is responded whose format is same as functions format eg. being  as copy constructor here requires function to of same format.
+        l=r.l;
+        b=r.b;
+    }
+    
+    
+    
+    void setlength(int length){
+        l=length;
+        if(length>0){
+            l=length;
+        }
+        else{
+            l=1;
+        }
+    }
+    void setbreadth(int breadth){
+        
+        if(breadth>0){
+            b=breadth;
+        }
+        else{
+            b=1;
+        }
+    }
+    
+    
+    int getlength(){
+        return l;
+    }
+    int getbreadth(){
+        return b;
+    }
+    
+    
+    int area(){
+        return l*b;
+        
+    }
+    int perimeter(){
+        return 2*(l+b);
+    }
+};
+
+
+int main()
+{
+    // rectangle r1;
+    // cout<<r1.area()<<endl; for nonparameterised constructor.
+    rectangle r1(10,5);
+    rectangle r2(r1);
+    cout<<r1.area()<<endl;
+
+
+    return 0;
+}
