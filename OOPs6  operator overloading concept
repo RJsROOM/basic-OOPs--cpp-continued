@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+class complex{
+    public:
+    int real;
+    int imag;
+    complex add(complex x){   // to remove this add func name and replace it with the addition operator we use operator word with + sign for that.
+        complex temp;         // like in above statement if we used *complex opertor+(complex x).* then for further the + sign can be used to add the two complex no.
+        temp.real=real+x.real;
+        temp.imag=imag+x.imag;
+        return temp;
+    }
+};
+
+int main()
+{
+    complex c1,c2,c3;
+    c1.real=5; c1.imag=8;
+    c2.real=5; c2.imag=6;
+    c3=c1.add(c2);     // if we used operator+ above then this statement could be like * c3=c1+c2;* .
+    cout<<"real part of added program is "<<c3.real<<"\n"<<"the imag part of the prog is "<<"i"<<c3.imag<<endl;
+
+    return 0;
+}
