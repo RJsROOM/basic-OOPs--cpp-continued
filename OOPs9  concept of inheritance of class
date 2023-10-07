@@ -1,0 +1,84 @@
+#include <iostream>
+
+using namespace std;
+
+/* eg1.
+
+class base{
+    public:
+    int a;
+    void show(){
+        cout<<"display of base class "<<a<<endl;
+    }
+};
+class derived:public base{
+    public:
+    void display(){
+        cout<<"display of derived class"<<endl;
+    }
+};
+
+int main()
+{
+    derived d;
+    d.a=90;
+    d.show();
+    d.display();
+
+    return 0;
+}*/
+
+// eg2.
+
+class rectangle{
+    private:
+    int length;
+    int breadth;
+    public:
+    rectangle(int l=1,int b=1){
+        length=l;
+        breadth=b;
+    }
+    int getlength(){return length;};
+    int getbreadth(){return breadth;};
+    void setlength(int l){
+        length=l;
+    }
+    void setbreadth(int b){
+        breadth=b;
+    }
+    int area(){
+        return length*breadth;
+    }
+    int perimetr(){
+        return 2*(length+breadth);
+    }
+    bool issquare(){
+        return length==breadth;
+    }
+    
+    
+};
+class cuboid:public rectangle{
+    private:
+    int height;
+    public:
+    cuboid(int h=0){
+        height=h;
+    }
+    int getheight(){ return height;}
+    void setheight(int h){height=h;}
+    int volume(){
+        return getlength()*getbreadth()*height;
+    }
+    
+};
+
+int main(){
+    cuboid c(6);
+    cout<<c.volume()<<endl;
+    
+    
+    
+    return 0;
+}
